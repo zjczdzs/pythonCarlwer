@@ -31,7 +31,7 @@ def Urllib3(url):
 
 def main():
     url = 'https://www.hao123.com/'
-    #url = 'https://movie.douban.com/typerank?type_name=%E7%88%B1%E6%83%85&type=13&interval_id=100:90&action='
+    # url = 'https://movie.douban.com/typerank?type_name=%E7%88%B1%E6%83%85&type=13&interval_id=100:90&action='
     _ = request(url)
     #_ = Urllib(url)
     #_ = Urllib3(url)
