@@ -8,9 +8,9 @@
 
 孙陈正常去一个个上网找影评的流程是这样的，先打开一个爱情电影分类
 
-![image-20220903211055138](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903211055138.png)
+![img](https://tvax2.sinaimg.cn/large/008sUWByly1h5z0p522zaj312p0mhncx.jpg)
 
-然后一个个点开电影的具体页面去找影评，再把它复制到自己的word文件里![image-20220903211303976](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903211303976.png)
+然后一个个点开电影的具体页面去找影评，再把它复制到自己的word文件里![img_1](https://tva2.sinaimg.cn/large/008sUWByly1h5z0rgwkbgj315d0nie0m.jpg)
 
 这是我们上网的宏观表现，作为一个网上冲浪的浪人我们只需要感知到这种地步就行了。但是想要会爬虫可不能只会这些。
 
@@ -22,47 +22,47 @@
 
    ![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvNjY3MjM4LzIwMTcxMi82NjcyMzgtMjAxNzEyMjkxNjA2MjUwMDctMTQ3NzY3NzM3NC5wbmc?x-oss-process=image/format,png)
 
-![image-20220903212353641](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903212353641.png)
+![img_3](https://tvax1.sinaimg.cn/large/008sUWByly1h5z0svxgqvj314o0kgtr5.jpg)
 
 ## 3.2 贯穿爬虫过程的检查
 
 返回数据的具体步骤我们可以从检查里看见，在页面上右键  检查
 
-![image-20220903212545242](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903212545242.png)
+![img_4](https://tva3.sinaimg.cn/large/008sUWByly1h5z0tconxtj31hc0q17wh.jpg)
 
 可以看到右侧的部分，映入眼帘的是elements,也就是网页的html文件。我们可以用鼠标扫过标签去看到标签对应的页面模块，
 
-![image-20220903213030382](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903213030382.png)
+![img_5](https://tvax2.sinaimg.cn/large/008sUWByly1h5z0tqll5yj305k0320t0.jpg)
 
 点击always下边的第一个图表也可以点击页面模块观察对应的html代码。这点很重要。
 
 下面我们点击elements旁边的network
 
-![image-20220903213147107](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903213147107.png)
+![img_6](https://tva3.sinaimg.cn/large/008sUWByly1h5z0u5kj8nj30l20mx77h.jpg)
 
 可以看见什么都没有，这是正常的，因为网页已经加载好了，暂时并没有发送什么网络请求，所以才是空白。所以我们要刷新一下页面，重新向服务器来请求资源。刷新后点击那个红色图标一下暂停。我们就可以看到网页刚加载的时候他给了我们什么数据。
 
-![image-20220903213516210](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903213516210.png)
+![img_7](https://tvax2.sinaimg.cn/large/008sUWByly1h5z0v1ko7wj30l80lqtcl.jpg)
 
 点开这个资源可以看到具体资源，因为它是按http网络协议进行数据传输的，所以这里并不是一下就能看到返回的数据，这里是按照http的一个数据格式封装返回的。
 
-![image-20220903213826870](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903213826870.png)
+![img_8](https://tvax2.sinaimg.cn/large/008sUWByly1h5z0visk96j31c60oy4aj.jpg)
 
 现在看到的是返回数据的Response,也就是请求头，他里面主要包含了，请求信息，浏览器信息，和用户信息。方便服务器返回能够正确显示的内容。
 
 preview是返回数据的预览。我们要看的数据在Response里，也就是服务器的回应。
 
-![image-20220903214504871](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903214504871.png)
+![img_9](https://tva1.sinaimg.cn/large/008sUWByly1h5z0vx0rsoj31cs0j8h0d.jpg)
 
-![image-20220903214431865](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903214431865.png)
+![img_10](https://tvax2.sinaimg.cn/large/008sUWByly1h5z0wf7uqoj31c00mrnkr.jpg)
 
 可以看到最终返回给了我们一个页面。
 
 再来找找我们所需要的影评在哪里
 
-![image-20220903215332130](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903215332130.png)
+![img_11](https://tva4.sinaimg.cn/large/008sUWByly1h5z0wssx8ej31h60rte81.jpg)
 
-这里我们需要影评在![image-20220903215619806](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220903215619806.png)下面的第一个<div>里的<p>标签里。然后我们差不多就可以写爬虫了。
+这里我们需要影评在![image-20220903215619806](https://tvax3.sinaimg.cn/large/008sUWByly1h5z0znjfngj304u01jgli.jpg)下面的第一个div里的p标签里。然后我们差不多就可以写爬虫了。
 
 # 二、爬虫流程
 
@@ -169,13 +169,13 @@ if __name__ == '__main__':
 
 下面我们可以试试用request爬https://movie.douban.com/typerank?type_name=%E7%88%B1%E6%83%85&type=13&interval_id=100:90&action=。
 
-![image-20220904234730665](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220904234730665.png)
+![img_12](https://tva3.sinaimg.cn/large/008sUWByly1h5z103wdwwj30tt05nwfw.jpg)
 
 运行这段代码你会发现没有任何结果
 
 我们再尝试输出 `res` 这个变量：
 
-![image-20220904234807501](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220904234807501.png)
+![img_13](https://tva1.sinaimg.cn/large/008sUWByly1h5z10bnutjj30u005uabu.jpg)
 
 可以看到状态码418
 
@@ -198,7 +198,7 @@ def request(url):
 
 你也可以用你自己的，在之前检查的network里打开一个翻到最下面有User-Agent
 
-![image-20220904235145928](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220904235145928.png)
+![img_14](https://tvax3.sinaimg.cn/large/008sUWByly1h5z10jorw2j30t60h7k0i.jpg)
 
 ## 2.2 获取所需要的数据
 
@@ -337,9 +337,9 @@ https://codejiaonang.com/#/course/regex_chapter1/0/0
 
 下面我们来试试获取 《霸王别姬》的第一个长篇影评
 
-先用![image-20220907200332056](https://github.com/zjczdzs/pythonCarlwer/blob/master/img/img.png)来点击第一个长篇影评找到其在html里面的位置
+先用![img_15](https://tva2.sinaimg.cn/large/008sUWByly1h5z111xe5oj30130140sh.jpg)来点击第一个长篇影评找到其在html里面的位置
 
-<img src="https://github.com/zjczdzs/pythonCarlwer/blob/master/img/img.png" alt="image-20220907200555873"/>
+![img_16](https://tva3.sinaimg.cn/large/008sUWByly1h5z11dj9q5j31h60oz7wh.jpg)
 
 展开可以看到长评内容在class="review-content clearfix"的div标签里面
 
@@ -353,15 +353,15 @@ soup.select('div .movie-content > a')
 
 打印一下查找结果数组
 
-![image-20220907201127529](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907201127529.png)
+![img_17](https://tvax4.sinaimg.cn/large/008sUWByly1h5z11lgu5vj311i0d045d.jpg)
 
 给返回了None,我数据呢？给我吞了？别急我们先打印一下获取的html数据
 
-![image-20220907201821637](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907201821637.png)
+![img_18](https://tva3.sinaimg.cn/large/008sUWByly1h5z11v9xmfj319t0dgwjt.jpg)
 
 这里根本就没有class="review-content clearfix的div标签。为什么呢？因为我们点展开之前页面clss='full-content'的div标签里是什么都没有的。
 
-![image-20220907205419534](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907205419534.png)
+![img_19](https://tva4.sinaimg.cn/large/008sUWByly1h5z12b1n1vj31d5075ahq.jpg)
 
 也就是说我们爬取的原始页面是没有class="review-content clearfix的div标签
 
@@ -369,11 +369,11 @@ soup.select('div .movie-content > a')
 
 这里我们刷新一下页面，等一会再打开检查里的network，再点展开。可以观察到空白的network出现了一个新的请求。里面返回的就是全部长评内容
 
-![image-20220907210052953](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907210052953.png)
+![img_20](https://tva3.sinaimg.cn/large/008sUWByly1h5z12pmlibj30yk0ghjv8.jpg)
 
 但是短评的a标签里是有一个url的，它是作者页面的链接
 
-![image-20220907210408223](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907210408223.png)
+![img_21](https://tvax3.sinaimg.cn/large/008sUWByly1h5z1390nhjj30o108bgq9.jpg)
 
 我们可以利用这个链接进去作者的影评页面去继续获取数据，虽然有些麻烦，但是现在也只能这样了。
 
@@ -381,7 +381,7 @@ soup.select('div .movie-content > a')
 
 我们在第二层页面里找到我们要的数据的尾汁
 
-![image-20220907210720199](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907210720199.png)
+![img_22](https://tva2.sinaimg.cn/large/008sUWByly1h5z13xxh38j31ic0mf7wh.jpg)
 
 这里就是class="review-content clearfix"的div里面了。至于里面的<br\>标签我们需要replace一下成” “还有div标签用re.sub给他匹配到后再删除掉就获取到我们要的数据了
 
@@ -430,11 +430,11 @@ def beautifulSoup(html):
 
 一般的网站是很简单的，他会把数据以一面固定多少个数据为一个类去展示出来。像阿里巴巴的矢量图标网站。
 
-![image-20220907215902403](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907215902403.png)
+![img_23](https://tvax4.sinaimg.cn/large/008sUWByly1h5z14gtz3gj31cz0omgv5.jpg)
 
 可以看到他是直接一个网站显示出来的。底部有页数
 
-![image-20220907215940728](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907215940728.png)
+![img_24](https://tvax2.sinaimg.cn/large/008sUWByly1h5z14xfdgdj30k305jweq.jpg)
 
 我们如果要爬第二个网站就进入第二面就行了。可以把第二面第三面的url都列出来
 
@@ -462,7 +462,7 @@ https://www.iconfont.cn/search/index?searchType=icon&q=&fromCollection=-1&page=5
 
 但是算我倒霉，随便挑一个豆瓣的爱情电影网站做爬虫就遇到反爬机制
 
-![image-20220907220537700](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907220537700.png)
+![img_25](https://tvax1.sinaimg.cn/large/008sUWByly1h5z15piozej318e0oqtjz.jpg)
 
 这个页面往下翻他是翻不到底的。。。因为它采用了”懒加载“数据。即在你将要翻到该数据时才加载该数据。加载后就将数据加入页面。这点和Android滚动数据的很像。但是这里懒加载的原理是ajax异步请求。当要要翻到该数据时想服务器请求该数据。这一点我还是挺兴奋的。先不说为啥兴奋。
 
@@ -470,17 +470,17 @@ https://www.iconfont.cn/search/index?searchType=icon&q=&fromCollection=-1&page=5
 
 刷新一下立刻点红点停止网络请求，可以能够看到爬取到的页面
 
-![image-20220907233931011](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907233931011.png)
+![img_26](https://tvax2.sinaimg.cn/large/008sUWByly1h5z15vzu1fj312o0obdqg.jpg)
 
 看一下当前页面的preview
 
-![image-20220907234007481](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907234007481.png)
+![img_27](https://tvax2.sinaimg.cn/large/008sUWByly1h5z16cp4shj30x50ghab4.jpg)
 
 只有一个开头数据一个都没有。
 
 我们刷新页面重新打开检查并且一边往下翻等发送ajax时观察他的network。
 
-![image-20220907225950390](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907225950390.png)
+![img_28](https://tva4.sinaimg.cn/large/008sUWByly1h5z16kcpedj313y0ocn81.jpg)
 
 可以看到这个请求的路径是
 
@@ -490,15 +490,15 @@ https://movie.douban.com/j/chart/top_list?type=13&interval_id=100%3A90&action=&s
 
 往下翻到最低有参数列表 看一看到请求了20条数据
 
-![image-20220907230422065](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907230422065.png)
+![img_29](https://tvax1.sinaimg.cn/large/008sUWByly1h5z16t7q1cj30fs054t9c.jpg)
 
 再看看它的response返回的是啥
 
-![image-20220907230526563](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907230526563.png)
+![img_30](https://tva2.sinaimg.cn/large/008sUWByly1h5z1717wrlj30jv02ugmi.jpg)
 
 这样看不太明显，我们把这段数据放在json转换网站里看一看
 
-![image-20220907230819950](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907230819950.png)
+![img_31](https://tva1.sinaimg.cn/large/008sUWByly1h5z17bqh6dj315a0m4gw3.jpg)
 
 里面有20条数据，每个里面的url就是对应的电影链接。
 
@@ -565,7 +565,7 @@ if __name__ == '__main__':
 
 可以看到只是爬20个网站花的时间，其中还有一个链接失效的
 
-![image-20220907232209897](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907232209897.png)
+![img_32](https://tvax4.sinaimg.cn/large/008sUWByly1h5z17k4xuoj30tn0jjwqh.jpg)
 
 要爬200个更得等好久，所以要想利用我们多核的资源充分去并行爬取我们就得写多线程爬虫。
 
@@ -641,9 +641,13 @@ if __name__ == '__main__':
 
 这里我开了5个线程。可以看一下多线程有多快。
 
-![image-20220907235734569](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907235734569.png)
+![img_33](https://tvax3.sinaimg.cn/large/008sUWByly1h5z17q96y0j30um0f643g.jpg)
 
 ## 4.3 想要更快？
 
-我们已经充分利用多核计算机的资源进行并行爬虫了。要想更快就得用分布式爬虫，一个集群的机器同时去并行爬取。可以非常快速的完成一个大数据量的爬虫任务。go是个非常智能、完备、简洁、快速的语言。天生就适合做云原生、区块链这种分布式的程序。并且速度非常之快。有兴趣的可以用go写一个爬虫，他里面也有自己的爬虫框架。
+我们已经充分利用多核计算机的资源进行并行爬虫了。要想更快就得用分布式爬虫，一个集群的机器同时去并行爬取。可以非常快速的完成一个大数据量的爬虫任务。这里提一下go语言。go是个非常智能、完备、简洁、快速的语言。天生就适合做云原生、区块链这种分布式的程序。并且速度非常之快。有兴趣的可以用go写一个爬虫，他里面也有自己的爬虫框架。
+
+# 五 、代码地址
+
+最后附上爬虫代码的github地址。[zjczdzs/pythonCarlwer (github.com)](https://github.com/zjczdzs/pythonCarlwer)
 
