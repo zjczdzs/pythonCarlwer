@@ -337,9 +337,9 @@ https://codejiaonang.com/#/course/regex_chapter1/0/0
 
 下面我们来试试获取 《霸王别姬》的第一个长篇影评
 
-先用![image-20220907200332056](C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907200332056.png)来点击第一个长篇影评找到其在html里面的位置
+先用![image-20220907200332056](https://github.com/zjczdzs/pythonCarlwer/blob/master/img/img.png)来点击第一个长篇影评找到其在html里面的位置
 
-<img src="C:\Users\ZHAI\AppData\Roaming\Typora\typora-user-images\image-20220907200555873.png" alt="image-20220907200555873"  />
+<img src="https://github.com/zjczdzs/pythonCarlwer/blob/master/img/img.png" alt="image-20220907200555873"/>
 
 展开可以看到长评内容在class="review-content clearfix"的div标签里面
 
