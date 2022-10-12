@@ -32,7 +32,7 @@ def beautifulSoup(html):
     realdata = realdata.replace("\xa0","")
     returndate = re.sub(replacelable,"",realdata)
     # print(returndate)
-    return returndate
+    return str(returndate)
 
     # data = soup.find(class_='review-content clearfix')
     # movieList = soup.select('div .movie-content > a')

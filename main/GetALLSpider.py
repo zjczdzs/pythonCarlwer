@@ -10,7 +10,7 @@ def askallurl():
         'interval_id': '100:90',
         'action': '',
         'start': '0',
-        'limit': '20'
+        'limit': '500'
     }
     try:
         response = requests.get(url,params = params,headers = headers)

@@ -42,7 +42,7 @@ def quickspider():
     for movie in movielist:
         workQueue.put(movie['url'])
     threads = []
-    for i in range(1, 6):
+    for i in range(1, 11):
         # 创建4个新线程
         thread = myThread("Thread-" + str(i), q=workQueue)
         # 开启新线程
